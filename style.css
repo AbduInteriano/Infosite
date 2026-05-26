@@ -1,0 +1,295 @@
+/* ==========================================================================
+   Hotel Copantl — Single-page informational site
+   Mobile-first · HTML + CSS only
+   ========================================================================== */
+
+:root {
+  --color-bg:         #F5F0E8;
+  --color-surface:    #FFFFFF;
+  --color-accent:     #9A7B2F;
+  --color-gold-light: #C4A052;
+  --color-text:       #2C2416;
+  --color-text-muted: #7A6A50;
+  --color-border:     #E2D9C8;
+
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans:  "Lato", system-ui, sans-serif;
+
+  --section-gap: 5rem;
+  --text-max:    680px;
+  --content-pad: 2.5rem 1.5rem;
+}
+
+/* Reset & base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23E8E0D4' fill-opacity='0.45' d='M0 0h1v1H0zm2 2h1v1H2z'/%3E%3C/svg%3E");
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* Typography
+   -------------------------------------------------------------------------- */
+.label {
+  margin: 0 0 0.75rem;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  max-width: 22ch;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+}
+
+h3 {
+  margin: 0 0 0.5rem;
+  color: var(--color-accent);
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+.heading-rule {
+  width: 60px;
+  height: 0;
+  margin: 1.25rem 0 1.5rem;
+  border: none;
+  border-top: 1px solid var(--color-gold-light);
+}
+
+.heading-rule--hero {
+  margin: 0 auto 1.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 65vh;
+  padding: 3rem 1.5rem;
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--text-max);
+}
+
+.hero__logo {
+  width: min(175px, 47.5vw);
+  margin-bottom: 1.75rem;
+}
+
+.hero__intro {
+  max-width: 42ch;
+  margin: 0 0 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+/* Content sections
+   -------------------------------------------------------------------------- */
+.content-section {
+  margin-bottom: var(--section-gap);
+}
+
+.content-section--last {
+  margin-bottom: var(--section-gap);
+}
+
+.content-section__banner {
+  margin-bottom: 0;
+}
+
+.content-section__text {
+  max-width: var(--text-max);
+  margin: 0 auto;
+  padding: var(--content-pad);
+  padding-bottom: 1.5rem;
+}
+
+.content-section__text p:not(.label) {
+  color: var(--color-text);
+}
+
+/* Contact / info block
+   -------------------------------------------------------------------------- */
+.info {
+  margin-bottom: var(--section-gap);
+  padding: 0 1.5rem;
+}
+
+.info__inner {
+  max-width: var(--text-max);
+  margin: 0 auto;
+  padding: var(--content-pad);
+  text-align: center;
+}
+
+.info__lead {
+  margin-bottom: 2rem;
+  color: var(--color-text-muted);
+}
+
+.info__cards {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.card {
+  padding: 1.5rem 1.75rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* CTA button
+   -------------------------------------------------------------------------- */
+.cta {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background-color: var(--color-gold-light);
+  outline: none;
+}
+
+.cta:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 5px var(--color-accent);
+}
+
+/* Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  padding: 2rem 1.5rem;
+  background-color: var(--color-text);
+  color: var(--color-surface);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+
+/* Tablet & desktop
+   -------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  .info__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    padding: 4rem 2rem;
+  }
+
+  .hero__logo {
+    width: 225px;
+  }
+
+  .content-section__text,
+  .info__inner {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+
+  h2 {
+    font-size: 2.85rem;
+  }
+}
