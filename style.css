@@ -298,6 +298,25 @@ p {
   outline: none;
 }
 
+.card__action {
+  display: inline-block;
+  margin-top: 0.85rem;
+  padding: 0.55rem 1rem;
+  background-color: var(--color-accent);
+  border-radius: 8px;
+  color: var(--color-surface);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.card__action:hover,
+.card__action:focus-visible {
+  background-color: var(--color-gold-light);
+  color: var(--color-surface);
+}
+
 /* CTA button
    -------------------------------------------------------------------------- */
 .cta {
