@@ -243,17 +243,37 @@ p {
   display: grid;
   gap: 1.25rem;
   margin-bottom: 2.5rem;
+  grid-auto-rows: 1fr;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 212px;
+  height: 100%;
   padding: 1.75rem 1.25rem;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   text-align: center;
+}
+
+.card--link {
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card--link:hover,
+.card--link:focus-visible {
+  border-color: var(--color-gold-light);
+  box-shadow: 0 8px 22px rgba(44, 36, 22, 0.08);
+  transform: translateY(-2px);
+  outline: none;
 }
 
 .card__icon {
@@ -270,13 +290,20 @@ p {
 }
 
 .card__icon svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.45rem;
+  height: 1.45rem;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.5;
+  stroke-width: 1.85;
   stroke-linecap: round;
   stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.card--map .card__icon svg,
+.card--whatsapp .card__icon svg {
+  transform: scale(1.12);
+  transform-origin: center;
 }
 
 .card p {
@@ -284,6 +311,8 @@ p {
   color: var(--color-text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .card a {
@@ -296,25 +325,6 @@ p {
 .card a:focus-visible {
   color: var(--color-accent);
   outline: none;
-}
-
-.card__action {
-  display: inline-block;
-  margin-top: 0.85rem;
-  padding: 0.55rem 1rem;
-  background-color: var(--color-accent);
-  border-radius: 8px;
-  color: var(--color-surface);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.card__action:hover,
-.card__action:focus-visible {
-  background-color: var(--color-gold-light);
-  color: var(--color-surface);
 }
 
 /* CTA button
@@ -364,7 +374,7 @@ p {
    -------------------------------------------------------------------------- */
 @media (min-width: 600px) {
   .info__cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
